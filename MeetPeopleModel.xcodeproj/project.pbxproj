@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22001A7C1FE20970008F0A4A /* PeopleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22001A7B1FE20970008F0A4A /* PeopleCollectionViewCell.swift */; };
 		2212632F1FE10ACA0046CA67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2212632E1FE10ACA0046CA67 /* AppDelegate.swift */; };
 		221263311FE10ACA0046CA67 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221263301FE10ACA0046CA67 /* ViewController.swift */; };
 		221263341FE10ACA0046CA67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 221263321FE10ACA0046CA67 /* Main.storyboard */; };
 		221263361FE10ACA0046CA67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 221263351FE10ACA0046CA67 /* Assets.xcassets */; };
 		221263391FE10ACA0046CA67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 221263371FE10ACA0046CA67 /* LaunchScreen.storyboard */; };
+		225DF2711FE122960037EC01 /* Json4Swift_Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DF2701FE122960037EC01 /* Json4Swift_Base.swift */; };
+		225DF2731FE122990037EC01 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DF2721FE122990037EC01 /* Data.swift */; };
+		22D24EEF1FE110650039062A /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D24EEE1FE110650039062A /* DataServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22001A7B1FE20970008F0A4A /* PeopleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleCollectionViewCell.swift; sourceTree = "<group>"; };
 		2212632B1FE10ACA0046CA67 /* MeetPeopleModel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetPeopleModel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2212632E1FE10ACA0046CA67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		221263301FE10ACA0046CA67 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,9 @@
 		221263351FE10ACA0046CA67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		221263381FE10ACA0046CA67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2212633A1FE10ACA0046CA67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		225DF2701FE122960037EC01 /* Json4Swift_Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Json4Swift_Base.swift; sourceTree = "<group>"; };
+		225DF2721FE122990037EC01 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		22D24EEE1FE110650039062A /* DataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,10 @@
 			children = (
 				2212632E1FE10ACA0046CA67 /* AppDelegate.swift */,
 				221263301FE10ACA0046CA67 /* ViewController.swift */,
+				225DF2701FE122960037EC01 /* Json4Swift_Base.swift */,
+				225DF2721FE122990037EC01 /* Data.swift */,
+				22D24EEE1FE110650039062A /* DataServices.swift */,
+				22001A7B1FE20970008F0A4A /* PeopleCollectionViewCell.swift */,
 				221263321FE10ACA0046CA67 /* Main.storyboard */,
 				221263351FE10ACA0046CA67 /* Assets.xcassets */,
 				221263371FE10ACA0046CA67 /* LaunchScreen.storyboard */,
@@ -136,8 +148,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				225DF2731FE122990037EC01 /* Data.swift in Sources */,
 				221263311FE10ACA0046CA67 /* ViewController.swift in Sources */,
 				2212632F1FE10ACA0046CA67 /* AppDelegate.swift in Sources */,
+				225DF2711FE122960037EC01 /* Json4Swift_Base.swift in Sources */,
+				22D24EEF1FE110650039062A /* DataServices.swift in Sources */,
+				22001A7C1FE20970008F0A4A /* PeopleCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +317,7 @@
 				2212633F1FE10ACA0046CA67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
