@@ -10,5 +10,10 @@ import UIKit
 
 class PeopleCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    override func prepareForReuse() {
+        userImage.image = nil
+        nameLabel.text = ""
+    }
 }

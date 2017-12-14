@@ -12,7 +12,7 @@ import Foundation
  
 /* For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
-public class Data {
+public class Datas {
 	public var region : Int?
 	public var is_online : Bool?
 	public var unread_num : Int?
@@ -24,11 +24,12 @@ public class Data {
 	public var last_login : Int?
 	public var user_name : String?
 	public var abt : String?
-	public var age : Int?
-	public var gender : Int?
-	public var user_id : String?
-	public var lat : Double?
-	public var dist : Int?
+    public var age : Int?
+    public var ava_id : String?
+    public var gender : Int?
+    public var user_id : String?
+    public var lat : Double?
+    public var dist : Int?
 
 /**
     Returns an array of models based on given dictionary.
@@ -40,12 +41,12 @@ public class Data {
 
     - returns: Array of Data Instances.
 */
-    public class func modelsFromDictionaryArray(array:NSArray) -> [Data]
+    public class func modelsFromDictionaryArray(array:NSArray) -> [Datas]
     {
-        var models:[Data] = []
+        var models:[Datas] = []
         for item in array
         {
-            models.append(Data(dictionary: item as! NSDictionary)!)
+            models.append(Datas(dictionary: item as! NSDictionary)!)
         }
         return models
     }
@@ -74,12 +75,12 @@ public class Data {
 		user_name = dictionary["user_name"] as? String
 		abt = dictionary["abt"] as? String
 		age = dictionary["age"] as? Int
-		gender = dictionary["gender"] as? Int
-		user_id = dictionary["user_id"] as? String
-		lat = dictionary["lat"] as? Double
-		dist = dictionary["dist"] as? Int
-	}
-
+        ava_id = dictionary["ava_id"] as? String
+        gender = dictionary["gender"] as? Int
+        user_id = dictionary["user_id"] as? String
+        lat = dictionary["lat"] as? Double
+        dist = dictionary["dist"] as? Int
+    }
 		
 /**
     Returns the dictionary representation for the current instance.
@@ -102,12 +103,12 @@ public class Data {
 		dictionary.setValue(self.user_name, forKey: "user_name")
 		dictionary.setValue(self.abt, forKey: "abt")
 		dictionary.setValue(self.age, forKey: "age")
-		dictionary.setValue(self.gender, forKey: "gender")
-		dictionary.setValue(self.user_id, forKey: "user_id")
-		dictionary.setValue(self.lat, forKey: "lat")
-		dictionary.setValue(self.dist, forKey: "dist")
-
-		return dictionary
-	}
+        dictionary.setValue(self.ava_id, forKey: "ava_id")
+        dictionary.setValue(self.gender, forKey: "gender")
+        dictionary.setValue(self.user_id, forKey: "user_id")
+        dictionary.setValue(self.lat, forKey: "lat")
+        dictionary.setValue(self.dist, forKey: "dist")
+        return dictionary
+    }
 
 }

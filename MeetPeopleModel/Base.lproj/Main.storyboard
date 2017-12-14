@@ -35,17 +35,30 @@
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7R-mu-B1m">
-                                                    <rect key="frame" x="4" y="9" width="46" height="34"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gvz-DD-LWT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7R-mu-B1m">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="gvz-DD-LWT" firstAttribute="top" secondItem="sLu-8g-znY" secondAttribute="top" id="6Kt-vM-U8p"/>
+                                            <constraint firstAttribute="trailing" secondItem="E7R-mu-B1m" secondAttribute="trailing" id="9Pa-nb-69F"/>
+                                            <constraint firstAttribute="trailing" secondItem="gvz-DD-LWT" secondAttribute="trailing" id="CPV-g1-I7w"/>
+                                            <constraint firstItem="gvz-DD-LWT" firstAttribute="leading" secondItem="sLu-8g-znY" secondAttribute="leading" id="F8U-5E-BaK"/>
+                                            <constraint firstItem="E7R-mu-B1m" firstAttribute="top" secondItem="sLu-8g-znY" secondAttribute="top" id="FyN-NF-Gob"/>
+                                            <constraint firstAttribute="bottom" secondItem="gvz-DD-LWT" secondAttribute="bottom" id="Jxa-Lv-q59"/>
+                                            <constraint firstAttribute="bottom" secondItem="E7R-mu-B1m" secondAttribute="bottom" id="eBL-1w-UDa"/>
+                                            <constraint firstItem="E7R-mu-B1m" firstAttribute="leading" secondItem="sLu-8g-znY" secondAttribute="leading" id="lqr-iy-zum"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="nameLabel" destination="E7R-mu-B1m" id="69L-Vp-IS2"/>
+                                            <outlet property="userImage" destination="gvz-DD-LWT" id="PI7-HD-jIf"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

@@ -7,9 +7,10 @@
 //
 import Foundation
 import UIKit
-
+var cache = NSCache<AnyObject, AnyObject>()
 class ViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     var name = [String]()
+    var imageArray = [String]()
     
     @IBOutlet weak var collectionVIew: UICollectionView!
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -21,22 +22,51 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PeopleCollectionViewCell
-        cell.nameLabel.text = name[indexPath.row]
+        configureCell(cell, indexPath: indexPath)
+        
         return cell
     }
     func registerNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: .data, object: nil)
     }
+    func configureCell(_ cell: PeopleCollectionViewCell, indexPath: IndexPath) {
+        DataServices.shared.getURl(imageID: imageArray[indexPath.row])
+        cell.nameLabel.text = name[indexPath.row]
+        
+        DispatchQueue.main.async {
+            self.downloadImage(cell, indexPath: indexPath)
+        }
+        
+    }
+    func downloadImage(_ cell: PeopleCollectionViewCell, indexPath: IndexPath) {
+        if let imageURL = URL(string: DataServices.shared.urlArray[indexPath.row]) {
+            let url = imageURL
+            if let imageFromCache = cache.object(forKey: url as AnyObject) as? UIImage {
+                cell.userImage.image = imageFromCache
+                return
+            }
+            if DataServices.shared.urlArray[indexPath.row] != "" {
+                guard let imageData = try? Data(contentsOf: imageURL) else {return}
+                if let imageFromCache = UIImage(data: imageData) {
+                    cell.userImage.image = imageFromCache
+                    cache.setObject(imageFromCache, forKey: url as AnyObject)
+            }
+        }
+    }
+    }
+    
     func reloadData() {
         self.name.append(DataServices.shared.name)
-        print(name.count)
+        self.imageArray.append(DataServices.shared.imageURL)
         DispatchQueue.main.async {
             self.collectionVIew.reloadData()
         }
     }
     deinit {
+        DataServices.shared.urlArray.removeAll()
         NotificationCenter.default.removeObserver(self)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         DataServices.shared.getData()
@@ -60,10 +90,11 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
             layout.minimumInteritemSpacing = 1.0
             layout.scrollDirection = isChange ? .vertical : .horizontal
             collectionVIew.setCollectionViewLayout(layout, animated: false)
+            
             collectionVIew.reloadData()
         }
     }
-
+    
     @IBAction func changeTypeClV(_ sender: Any) {
         if let layout = collectionVIew.collectionViewLayout as? UICollectionViewFlowLayout {
             if layout.scrollDirection == .vertical {
@@ -72,7 +103,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
             } else {
                 layout.scrollDirection = .vertical
                 isChange = true
-              collectionVIew.scrollToItem(at: IndexPath(row: 1, section: 0), at: UICollectionViewScrollPosition.top, animated: false)
+                collectionVIew.scrollToItem(at: IndexPath(row: 1, section: 0), at: UICollectionViewScrollPosition.top, animated: false)
             }
         }
     }

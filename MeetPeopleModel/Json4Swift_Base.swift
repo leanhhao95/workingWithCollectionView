@@ -13,7 +13,7 @@ import Foundation
 /* For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
 public class Json4Swift_Base {
-	public var data : Array<Data>?
+	public var data : Array<Datas>?
 	public var code : Int?
     
 /**
@@ -48,7 +48,7 @@ public class Json4Swift_Base {
 */
 	required public init?(dictionary: NSDictionary) {
 
-        if (dictionary["data"] != nil) { data = Data.modelsFromDictionaryArray(array: dictionary["data"] as! NSArray) }
+        if (dictionary["data"] != nil) { data = Datas.modelsFromDictionaryArray(array: dictionary["data"] as! NSArray) }
 		code = dictionary["code"] as? Int
 	}
 
